@@ -278,3 +278,68 @@ scrollTopBtn.addEventListener("click", () => {
     });
 
 });
+
+//=========================
+// COMPANY STATISTICS COUNTER
+//=========================
+
+const statsSection = document.querySelector("#company-stats");
+const counters = document.querySelectorAll("#company-stats .counter");
+
+let statsStarted = false;
+
+function startCounters(){
+
+    if(statsStarted) return;
+
+    statsStarted = true;
+
+    counters.forEach(counter=>{
+
+        const target = +counter.dataset.target;
+
+        let current = 0;
+
+        const increment = Math.max(1, Math.ceil(target / 200));
+
+        function updateCounter(){
+
+            current += increment;
+
+            if(current >= target){
+
+                counter.innerText = target;
+
+            }else{
+
+                counter.innerText = current;
+
+                requestAnimationFrame(updateCounter);
+
+            }
+
+        }
+
+        updateCounter();
+
+    });
+
+}
+
+const statsObserver = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            startCounters();
+
+        }
+
+    });
+
+},{
+    threshold:.35
+});
+
+statsObserver.observe(statsSection);

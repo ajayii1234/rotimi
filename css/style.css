@@ -2882,3 +2882,760 @@ nav{
     transition:stroke-dashoffset .1s linear;
 
 }
+
+/*=========================================
+        ABOUT HERO
+=========================================*/
+
+#about-hero{
+
+    position:relative;
+
+    height:420px;
+
+    background:url("https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=2000&q=80")
+        center/cover no-repeat;
+
+}
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(8,28,54,.72);
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.about-hero-content{
+
+    max-width:720px;
+
+    color:#fff;
+
+}
+
+.hero-subtitle{
+
+    display:inline-block;
+
+    color:#F97316;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+}
+
+.about-hero-content h1{
+
+    font-size:64px;
+
+    margin-bottom:20px;
+
+    line-height:1.1;
+
+}
+
+.about-hero-content p{
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    max-width:650px;
+
+    margin-bottom:35px;
+
+}
+
+.breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:15px;
+
+}
+
+.breadcrumb a{
+
+    color:#fff;
+
+    transition:.3s;
+
+}
+
+.breadcrumb a:hover{
+
+    color:#F97316;
+
+}
+
+.breadcrumb span:last-child{
+
+    color:#F97316;
+
+}
+
+/*=========================================
+        COMPANY STORY
+=========================================*/
+
+#company-story{
+
+    padding:120px 0;
+
+}
+
+.story-wrapper{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.story-image{
+
+    position:relative;
+
+}
+
+.story-image img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    display:block;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.15);
+
+}
+
+.story-content h2{
+
+    margin:20px 0;
+
+    font-size:42px;
+
+    line-height:1.2;
+
+}
+
+.story-content p{
+
+    margin-bottom:20px;
+
+    color:#666;
+
+    line-height:1.9;
+
+}
+
+.story-features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin:40px 0;
+
+}
+
+.story-features div{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:600;
+
+}
+
+.story-features i{
+
+    color:#F97316;
+
+}
+
+/*=========================================
+            COMPANY JOURNEY
+=========================================*/
+
+#journey{
+
+    padding:120px 0;
+
+    background:#f8fafc;
+
+}
+
+.timeline{
+
+    position:relative;
+
+    max-width:900px;
+
+    margin:70px auto 0;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    bottom:0;
+
+    width:4px;
+
+    background:#F97316;
+
+    transform:translateX(-50%);
+
+}
+
+.timeline-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:70px;
+
+    position:relative;
+
+}
+
+.timeline-item:nth-child(even){
+
+    flex-direction:row-reverse;
+
+}
+
+.timeline-year{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:#0B3C6D;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    flex-shrink:0;
+
+    z-index:2;
+
+}
+
+.timeline-content{
+
+    width:42%;
+
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.timeline-content h3{
+
+    margin-bottom:15px;
+
+}
+
+.timeline-content p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/*=========================================
+        MISSION & VISION
+=========================================*/
+
+#mission-vision{
+
+    padding:120px 0;
+
+}
+
+.mission-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:35px;
+
+    margin-top:60px;
+
+}
+
+.mission-card{
+
+    background:#fff;
+
+    padding:45px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+
+}
+
+.mission-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.mission-icon{
+
+    width:75px;
+
+    height:75px;
+
+    background:#F97316;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+.mission-card h3{
+
+    margin-bottom:18px;
+
+}
+
+.mission-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/*=========================================
+        CORE VALUES
+=========================================*/
+
+#core-values{
+
+    padding:120px 0;
+
+    background:#f8fafc;
+
+}
+
+.values-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.value-card{
+
+    background:#fff;
+
+    padding:40px 30px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:.35s ease;
+
+}
+
+.value-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+.value-card i{
+
+    font-size:42px;
+
+    color:#F97316;
+
+    margin-bottom:25px;
+
+}
+
+.value-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.value-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+/*=========================================
+        WHY CHOOSE US
+=========================================*/
+
+#why-choose-us{
+
+    padding:120px 0;
+
+}
+
+.why-wrapper{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.why-image img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.15);
+
+}
+
+.why-content h2{
+
+    margin:20px 0;
+
+    font-size:42px;
+
+    line-height:1.2;
+
+}
+
+.why-content > p{
+
+    color:#666;
+
+    line-height:1.9;
+
+    margin-bottom:40px;
+
+}
+
+.why-list{
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+.why-item{
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+}
+
+.why-item i{
+
+    width:60px;
+
+    height:60px;
+
+    background:#F97316;
+
+    color:#fff;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:22px;
+
+    flex-shrink:0;
+
+}
+
+.why-item h3{
+
+    margin-bottom:8px;
+
+}
+
+.why-item p{
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+
+/*=========================================
+        COMPANY STATISTICS
+=========================================*/
+
+#company-stats{
+
+    position:relative;
+
+    background:url("https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=2000&auto=format&fit=crop")
+        center center/cover no-repeat;
+
+    background-attachment:fixed;
+
+}
+
+.stats-overlay{
+
+    background:rgba(11,60,109,.85);
+
+    padding:120px 0;
+
+}
+
+#company-stats .section-title{
+
+    text-align:center;
+
+    color:#fff;
+
+}
+
+#company-stats .section-title p{
+
+    color:rgba(255,255,255,.8);
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:30px;
+
+    margin-top:70px;
+
+}
+
+.stat-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    text-align:center;
+
+    padding:45px 30px;
+
+    transition:.35s ease;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-12px);
+
+    background:rgba(255,255,255,.14);
+
+}
+
+.stat-card i{
+
+    font-size:42px;
+
+    color:#F97316;
+
+    margin-bottom:20px;
+
+}
+
+.stat-card h3{
+
+    font-size:56px;
+
+    color:#fff;
+
+    margin-bottom:12px;
+
+}
+
+.stat-card p{
+
+    color:rgba(255,255,255,.85);
+
+    font-size:17px;
+
+}
+
+/*=========================================
+        LEADERSHIP
+=========================================*/
+
+#leadership{
+
+    padding:120px 0;
+
+}
+
+.leadership-wrapper{
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.leader-image img{
+
+    width:100%;
+
+    border-radius:24px;
+
+    display:block;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+}
+
+.leader-content h2{
+
+    margin:20px 0 30px;
+
+    font-size:42px;
+
+    line-height:1.2;
+
+}
+
+.leader-content blockquote{
+
+    position:relative;
+
+    font-size:19px;
+
+    line-height:2;
+
+    color:#666;
+
+    padding-left:35px;
+
+    margin-bottom:40px;
+
+    border-left:5px solid #F97316;
+
+    font-style:italic;
+
+}
+
+.leader-info h3{
+
+    margin-bottom:6px;
+
+}
+
+.leader-info span{
+
+    color:#F97316;
+
+    font-weight:600;
+
+}
+
