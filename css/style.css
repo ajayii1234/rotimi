@@ -150,6 +150,7 @@ section{
     transform: translateY(-2px);
 }
 
+
 /*=========================================
         HEADER
 =========================================*/
@@ -166,6 +167,8 @@ section{
 
     z-index:1000;
 
+    transition:all .35s ease;
+
 }
 
 #header .container{
@@ -175,6 +178,74 @@ section{
     border-radius:18px;
 
     box-shadow:0 20px 60px rgba(0,0,0,.12);
+
+    transition:all .35s ease;
+
+}
+
+/*=========================================
+        STICKY HEADER
+=========================================*/
+
+#header.sticky{
+
+    position:fixed;
+
+    top:15px;
+
+    animation:headerSlide .4s ease;
+
+}
+
+#header.sticky .container{
+
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
+
+}
+
+#header.sticky nav{
+
+    min-height:78px;
+
+}
+
+#header.sticky .logo img{
+
+    height:55px;
+
+    width:auto;
+
+}
+
+#header.sticky .logo h2{
+
+    font-size:26px;
+
+}
+
+#header.sticky .logo p{
+
+    font-size:13px;
+
+}
+
+@keyframes headerSlide{
+
+    from{
+
+        transform:translateY(-80px);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
 
 }
 
@@ -212,10 +283,20 @@ nav{
 
 .logo img{
 
-    width:100%;
+    height:70px;
+
+    width:auto;
+
+    transition:.35s ease;
 
 }
 
+.logo h2,
+.logo p{
+
+    transition:.35s ease;
+
+}
 .logo h2{
 
     color:var(--primary);
@@ -2385,35 +2466,7 @@ nav{
 
 }
 
-.back-to-top{
 
-    width:50px;
-
-    height:50px;
-
-    border-radius:50%;
-
-    background:#f97316;
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-decoration:none;
-
-    transition:.35s;
-
-}
-
-.back-to-top:hover{
-
-    transform:translateY(-6px);
-
-}
 
 /*=========================================
         MOBILE MENU
@@ -2532,5 +2585,300 @@ nav{
     justify-content:center;
 
     margin-top:45px;
+
+}/*=========================================
+        SCROLL ANIMATIONS
+=========================================*/
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal-left{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal-right{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal-zoom{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:all .8s ease;
+
+}
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.reveal-zoom.active{
+
+    opacity:1;
+
+    transform:none;
+
+}
+
+/*=========================================
+        PROJECT FILTER ANIMATION
+=========================================*/
+
+.project-card{
+
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        scale .35s ease;
+
+}
+
+.project-card.hide{
+
+    display:none;
+
+}
+
+.project-card.show{
+
+    display:block;
+
+}
+
+/*=========================================
+            PAGE LOADER
+=========================================*/
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#ffffff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999999;
+
+    transition:opacity .5s ease,
+               visibility .5s ease;
+
+}
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-content img{
+
+    height:90px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    animation:logoFloat 2s ease-in-out infinite;
+
+}
+
+.loader-content h2{
+
+    color:#0B3C6D;
+
+    margin-bottom:30px;
+
+}
+
+.loader-spinner{
+
+    width:55px;
+
+    height:55px;
+
+    margin:auto;
+
+    border:5px solid #e5e7eb;
+
+    border-top:5px solid #F97316;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes logoFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*=========================================
+        SCROLL TO TOP
+=========================================*/
+
+#scrollTop{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#F97316;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(20px);
+
+    transition:.35s ease;
+
+    z-index:9999;
+
+    box-shadow:0 15px 35px rgba(249,115,22,.35);
+
+}
+
+#scrollTop.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+#scrollTop:hover{
+
+    transform:translateY(-6px);
+
+}
+
+#scrollTop i{
+
+    position:absolute;
+
+    font-size:20px;
+
+}
+
+.progress-ring{
+
+    position:absolute;
+
+    inset:0;
+
+    transform:rotate(-90deg);
+
+}
+
+.progress-ring circle{
+
+    fill:none;
+
+    stroke-width:4;
+
+}
+
+.progress-ring-bg{
+
+    stroke:rgba(255,255,255,.25);
+
+}
+
+.progress-ring-circle{
+
+    stroke:#fff;
+
+    stroke-linecap:round;
+
+    stroke-dasharray:163.36;
+
+    stroke-dashoffset:163.36;
+
+    transition:stroke-dashoffset .1s linear;
 
 }

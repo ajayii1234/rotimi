@@ -502,3 +502,41 @@
     }
 
 }
+
+@media(max-width:991px){
+
+    #header.sticky{
+
+        top:10px;
+
+    }
+
+    #header.sticky nav{
+
+        min-height:70px;
+
+    }
+
+    #header.sticky .logo img{
+
+        height:45px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    #scrollTop{
+
+        right:18px;
+
+        bottom:18px;
+
+        width:55px;
+
+        height:55px;
+
+    }
+
+}

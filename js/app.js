@@ -117,3 +117,164 @@ function closeMobileMenu(){
     mobileOverlay.classList.remove("active");
 
 }
+
+//=========================
+// SCROLL REVEAL
+//=========================
+
+const revealElements = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right, .reveal-zoom"
+);
+
+const revealObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("active");
+
+        }
+
+    });
+
+},{
+    threshold:0.15
+});
+
+revealElements.forEach(el=>{
+
+    revealObserver.observe(el);
+
+});
+
+//=========================
+// STICKY HEADER
+//=========================
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 120){
+
+        header.classList.add("sticky");
+
+    }else{
+
+        header.classList.remove("sticky");
+
+    }
+
+});
+
+//=========================
+// PROJECT FILTER
+//=========================
+
+const filterButtons = document.querySelectorAll(".project-filter button");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+
+            const category = card.dataset.category;
+
+            if(filter === "all" || filter === category){
+
+                card.classList.remove("hide");
+
+                card.classList.add("show");
+
+            }else{
+
+                card.classList.remove("show");
+
+                card.classList.add("hide");
+
+            }
+
+        });
+
+    });
+
+});
+
+//=========================
+// PAGE LOADER
+//=========================
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    loader.classList.add("hide");
+
+    loader.addEventListener("transitionend", () => {
+
+        loader.remove();
+
+    });
+
+});
+
+//=========================
+// SCROLL TO TOP
+//=========================
+
+const scrollTopBtn = document.getElementById("scrollTop");
+
+const progressCircle = document.querySelector(".progress-ring-circle");
+
+const radius = 26;
+
+const circumference = 2 * Math.PI * radius;
+
+progressCircle.style.strokeDasharray = circumference;
+
+progressCircle.style.strokeDashoffset = circumference;
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop = window.scrollY;
+
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    const progress = scrollTop / docHeight;
+
+    const offset = circumference - progress * circumference;
+
+    progressCircle.style.strokeDashoffset = offset;
+
+    if(scrollTop > 300){
+
+        scrollTopBtn.classList.add("show");
+
+    }else{
+
+        scrollTopBtn.classList.remove("show");
+
+    }
+
+});
+
+scrollTopBtn.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
