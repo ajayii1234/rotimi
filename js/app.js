@@ -40,51 +40,57 @@ new Swiper(".hero",{
 // TESTIMONIALS
 //=========================
 
-new Swiper(".testimonial-slider",{
+const testimonialSlider = document.querySelector(".testimonial-slider");
 
-    loop:true,
+if (testimonialSlider) {
 
-    spaceBetween:30,
+    new Swiper(".testimonial-slider", {
 
-    autoplay:{
+        loop: true,
 
-        delay:5000,
+        spaceBetween: 30,
 
-        disableOnInteraction:false
+        autoplay: {
 
-    },
+            delay: 5000,
 
-    pagination:{
-
-        el:".testimonial-pagination",
-
-        clickable:true
-
-    },
-
-    breakpoints:{
-
-        0:{
-
-            slidesPerView:1
+            disableOnInteraction: false
 
         },
 
-        768:{
+        pagination: {
 
-            slidesPerView:2
+            el: ".testimonial-pagination",
+
+            clickable: true
 
         },
 
-        1200:{
+        breakpoints: {
 
-            slidesPerView:3
+            0: {
+
+                slidesPerView: 1
+
+            },
+
+            768: {
+
+                slidesPerView: 2
+
+            },
+
+            1200: {
+
+                slidesPerView: 3
+
+            }
 
         }
 
-    }
+    });
 
-});
+}
 
 //=========================
 // MOBILE MENU
@@ -98,13 +104,26 @@ const mobileOverlay=document.querySelector(".mobile-overlay");
 
 const closeMenu=document.querySelector(".close-menu");
 
-mobileToggle.addEventListener("click",()=>{
+if (
+    mobileToggle &&
+    mobileMenu &&
+    mobileOverlay &&
+    closeMenu
+) {
 
-    mobileMenu.classList.add("active");
+    mobileToggle.addEventListener("click", () => {
 
-    mobileOverlay.classList.add("active");
+        mobileMenu.classList.add("active");
 
-});
+        mobileOverlay.classList.add("active");
+
+    });
+
+    closeMenu.addEventListener("click", closeMobileMenu);
+
+    mobileOverlay.addEventListener("click", closeMobileMenu);
+
+}
 
 closeMenu.addEventListener("click",closeMobileMenu);
 
@@ -158,7 +177,23 @@ window.addEventListener("scroll", () => {
 
     if(window.scrollY > 120){
 
-        header.classList.add("sticky");
+        if (header) {
+
+            window.addEventListener("scroll", () => {
+        
+                if (window.scrollY > 120) {
+        
+                    header.classList.add("sticky");
+        
+                } else {
+        
+                    header.classList.remove("sticky");
+        
+                }
+        
+            });
+        
+        }
 
     }else{
 
@@ -342,4 +377,277 @@ const statsObserver = new IntersectionObserver((entries)=>{
     threshold:.35
 });
 
-statsObserver.observe(statsSection);
+if (statsSection) {
+    statsObserver.observe(statsSection);
+}
+
+//======================================
+// SERVICES FAQ
+//======================================
+
+const serviceFaqItems = document.querySelectorAll("#services-faq .faq-item");
+
+if (serviceFaqItems.length) {
+
+    serviceFaqItems.forEach(item => {
+
+        const button = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        button.addEventListener("click", () => {
+
+            serviceFaqItems.forEach(faq => {
+
+                if (faq !== item) {
+
+                    faq.classList.remove("active");
+                    faq.querySelector(".faq-answer").style.maxHeight = null;
+
+                }
+
+            });
+
+            item.classList.toggle("active");
+
+            if (item.classList.contains("active")) {
+
+                answer.style.maxHeight = answer.scrollHeight + "px";
+
+            } else {
+
+                answer.style.maxHeight = null;
+
+            }
+
+        });
+
+    });
+
+}
+
+//======================================
+// GALLERY LIGHTBOX
+//======================================
+
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("gallery-lightbox");
+
+if (galleryItems.length && lightbox) {
+
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxCategory = document.getElementById("lightbox-category");
+
+    const closeBtn = document.querySelector(".lightbox-close");
+    const nextBtn = document.querySelector(".lightbox-next");
+    const prevBtn = document.querySelector(".lightbox-prev");
+
+    let currentIndex = 0;
+
+    function showImage(index) {
+
+        const img = galleryItems[index].querySelector("img");
+
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+
+        lightboxTitle.textContent = img.dataset.title;
+        lightboxCategory.textContent = img.dataset.category;
+
+        currentIndex = index;
+    }
+
+    galleryItems.forEach((item, index) => {
+
+        item.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            showImage(index);
+
+            lightbox.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    nextBtn.addEventListener("click", function () {
+
+        currentIndex++;
+
+        if (currentIndex >= galleryItems.length) {
+
+            currentIndex = 0;
+
+        }
+
+        showImage(currentIndex);
+
+    });
+
+    prevBtn.addEventListener("click", function () {
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex = galleryItems.length - 1;
+
+        }
+
+        showImage(currentIndex);
+
+    });
+
+    lightbox.addEventListener("click", function (e) {
+
+        if (e.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    });
+
+    document.addEventListener("keydown", function (e) {
+
+        if (!lightbox.classList.contains("active")) return;
+
+        switch (e.key) {
+
+            case "Escape":
+                closeLightbox();
+                break;
+
+            case "ArrowRight":
+                nextBtn.click();
+                break;
+
+            case "ArrowLeft":
+                prevBtn.click();
+                break;
+
+        }
+
+    });
+
+}
+
+//======================================
+// VIDEO GALLERY
+//======================================
+
+const videoCards = document.querySelectorAll(".video-card");
+const videoModal = document.getElementById("video-modal");
+
+if (videoCards.length && videoModal) {
+
+    const frame = document.getElementById("video-frame");
+    const close = document.querySelector(".video-close");
+
+    videoCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            frame.src = card.dataset.video + "?autoplay=1";
+
+            videoModal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+    });
+
+    function closeVideo() {
+
+        frame.src = "";
+
+        videoModal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+    close.addEventListener("click", closeVideo);
+
+    videoModal.addEventListener("click", e => {
+
+        if (e.target === videoModal) {
+
+            closeVideo();
+
+        }
+
+    });
+
+    document.addEventListener("keydown", e => {
+
+        if (e.key === "Escape" &&
+            videoModal.classList.contains("active")) {
+
+            closeVideo();
+
+        }
+
+    });
+
+}
+
+//======================================
+// CONTACT FAQ
+//======================================
+
+const contactFaqItems = document.querySelectorAll("#contact-faq .faq-item");
+
+if (contactFaqItems.length) {
+
+    contactFaqItems.forEach(item => {
+
+        const button = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        button.addEventListener("click", () => {
+
+            contactFaqItems.forEach(faq => {
+
+                if (faq !== item) {
+
+                    faq.classList.remove("active");
+                    faq.querySelector(".faq-answer").style.maxHeight = null;
+
+                }
+
+            });
+
+            item.classList.toggle("active");
+
+            if (item.classList.contains("active")) {
+
+                answer.style.maxHeight = answer.scrollHeight + "px";
+
+            } else {
+
+                answer.style.maxHeight = null;
+
+            }
+
+        });
+
+    });
+
+}
+
+
