@@ -651,3 +651,74 @@ if (contactFaqItems.length) {
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.getElementById("quoteForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    if (!form || !submitBtn) {
+
+        console.error("Form or submit button not found.");
+
+        return;
+
+    }
+
+    form.addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+
+        submitBtn.innerHTML =
+            '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        const formData = new FormData(form);
+
+        formData.append(
+            "_subject",
+            "New Quote Request - Rotimitunde Global Logistics"
+        );
+
+        try {
+
+            const response = await fetch(
+                // "https://formspree.io/f/mkodapro",
+                "https://formspree.io/f/xeeywnro",
+                {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        Accept: "application/json"
+                    }
+                }
+            );
+
+            if (response.ok) {
+
+                window.location.href = "thank-you.html";
+
+            } else {
+
+                alert("Submission failed. Please try again.");
+
+            }
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert("Network error.");
+
+        } finally {
+
+            submitBtn.disabled = false;
+
+            submitBtn.innerHTML =
+                '<i class="fas fa-paper-plane"></i> <span>Send Inquiry</span>';
+
+        }
+
+    });
+
+});

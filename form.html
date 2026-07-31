@@ -1,0 +1,296 @@
+<!--==================================
+        CONTACT FORM
+===================================-->
+
+<section id="contact-form">
+
+    <div class="container">
+
+        <div class="contact-wrapper">
+
+            <!-- LEFT SIDE -->
+
+            <div class="contact-info-panel">
+
+                <span class="section-subtitle">
+
+                    Request A Quote
+
+                </span>
+
+                <h2>
+
+                    Tell Us About Your Project
+
+                </h2>
+
+                <p>
+
+                    Every logistics project is unique.
+                    Share your requirements and our
+                    specialists will prepare the best
+                    solution for your business.
+
+                </p>
+
+                <div class="quote-features">
+
+                    <div>
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+
+                            Free Consultation
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+
+                            Fast Response
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+
+                            Nationwide Coverage
+
+                        </span>
+
+                    </div>
+
+                    <div>
+
+                        <i class="fas fa-circle-check"></i>
+
+                        <span>
+
+                            Tailored Logistics Plans
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <form class="quote-form"
+            action="https://formspree.io/f/mkodapro"
+            method="POST"
+            enctype="multipart/form-data">
+      
+          <!-- Custom Email Subject -->
+          <input
+              type="hidden"
+              name="_subject"
+              value="New Quote Request - Rotimitunde Global Logistics">
+      
+          <!-- Redirect After Successful Submission -->
+          <input
+              type="hidden"
+              name="_next"
+              value="http://127.0.0.1:5500/thank-you.html">
+
+
+      
+          <!-- Spam Protection -->
+          <input
+              type="text"
+              name="_gotcha"
+              style="display:none">
+      
+          <div class="form-grid">
+      
+              <div class="form-group">
+      
+                  <label>Full Name</label>
+      
+                  <input
+                      type="text"
+                      name="full_name"
+                      placeholder="John Doe"
+                      required>
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Company</label>
+      
+                  <input
+                      type="text"
+                      name="company"
+                      placeholder="ABC Limited">
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Email</label>
+      
+                  <input
+                      type="email"
+                      name="email"
+                      placeholder="example@email.com"
+                      required>
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Phone Number</label>
+      
+                  <input
+                      type="tel"
+                      name="phone_number"
+                      placeholder="+234"
+                      required>
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Service Required</label>
+      
+                  <select
+                      name="service_required"
+                      required>
+      
+                      <option value="">Select Service</option>
+      
+                      <option>Transportation</option>
+      
+                      <option>Warehousing</option>
+      
+                      <option>Procurement</option>
+      
+                      <option>Distribution</option>
+      
+                  </select>
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Preferred Contact</label>
+      
+                  <select name="preferred_contact">
+      
+                      <option>Phone</option>
+      
+                      <option>Email</option>
+      
+                      <option>WhatsApp</option>
+      
+                  </select>
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Estimated Budget</label>
+      
+                  <input
+                      type="text"
+                      name="estimated_budget"
+                      placeholder="₦">
+      
+              </div>
+      
+              <div class="form-group">
+      
+                  <label>Project Timeline</label>
+      
+                  <input
+                      type="text"
+                      name="project_timeline"
+                      placeholder="Example: 2 Weeks">
+      
+              </div>
+      
+          </div>
+      
+          <div class="form-group full-width">
+      
+              <label>Subject</label>
+      
+              <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  required>
+      
+          </div>
+      
+          <div class="form-group full-width">
+      
+              <label>Project Details</label>
+      
+              <textarea
+                  name="project_details"
+                  rows="7"
+                  placeholder="Tell us about your logistics requirements..."
+                  required></textarea>
+      
+          </div>
+      
+          <!-- <div class="form-group full-width">
+      
+              <label>Upload Supporting Documents</label>
+      
+              <input
+                  type="file"
+                  name="attachment"
+                  accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
+      
+          </div> -->
+      
+          <div class="checkbox-group">
+      
+              <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy_policy"
+                  required>
+      
+              <label for="privacy">
+      
+                  I agree to the Privacy Policy.
+      
+              </label>
+      
+          </div>
+      
+          <button
+          id="submitBtn"
+          class="btn btn-primary"
+          type="submit">
+      
+          <i class="fas fa-paper-plane"></i>
+      
+          <span>Send Inquiry</span>
+      
+      </button>
+      
+      </form>
+
+        </div>
+
+    </div>
+
+</section>
