@@ -65,34 +65,37 @@ body{
 /* Shipping-seal styled success mark: a stamped, slightly rotated ring
    nods to a logistics "confirmed / cleared" stamp rather than a generic
    checkmark badge. */
-.success-icon{
+   .success-icon{
 
-    width:62px;
-    height:62px;
-    margin:0 auto 14px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    color:var(--orange-dark);
-    background:#fff;
-    border:3px dashed var(--orange);
-    transform:rotate(-8deg);
-    position:relative;
-    animation:stampIn .5s .3s cubic-bezier(.34,1.56,.64,1) both;
+width:62px;
+height:62px;
+margin:0 auto 14px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+color:var(--orange-dark);
+background:#fff;
+border:3px dashed var(--orange);
+position:relative;
+animation:spin 4s linear infinite;
 
 }
 
-.success-icon i{ transform:rotate(8deg); }
+.success-icon i{
+
+animation:counterSpin 4s linear infinite;
+
+}
 
 .success-icon::after{
 
-    content:"";
-    position:absolute;
-    inset:-8px;
-    border-radius:50%;
-    border:1px solid rgba(249,115,22,.25);
+content:"";
+position:absolute;
+inset:-8px;
+border-radius:50%;
+border:1px solid rgba(249,115,22,.25);
 
 }
 
@@ -243,10 +246,35 @@ p strong{ color:var(--ink); }
 
 }
 
-@keyframes stampIn{
+@keyframes spin{
 
-    from{ opacity:0; transform:rotate(-8deg) scale(.7); }
-    to{ opacity:1; transform:rotate(-8deg) scale(1); }
+from{
+
+    transform:rotate(0deg);
+
+}
+
+to{
+
+    transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes counterSpin{
+
+from{
+
+    transform:rotate(0deg);
+
+}
+
+to{
+
+    transform:rotate(-360deg);
+
+}
 
 }
 
